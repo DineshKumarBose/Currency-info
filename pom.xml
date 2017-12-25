@@ -1,13 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.leafsoft</groupId>
-  <version>1.0-SNAPSHOT</version>
-  <artifactId>currency</artifactId>
   <packaging>war</packaging>
-<repositories>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>db Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+        <spring.version>4.2.2.RELEASE</spring.version>
+        <springSecurity.version>4.0.2.RELEASE</springSecurity.version>
+    </properties>
+    <repositories>
 	    <repository>
 	        <id>maven2-repository.java.net</id>
 	        <name>Java.net Repository for Maven</name>
@@ -15,8 +18,43 @@
 	        <layout>default</layout>
 	    </repository>
 	</repositories>
-  <dependencies>
-   <dependency>
+    <dependencies>
+        <!-- Spring MVC -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${springSecurity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${springSecurity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${springSecurity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${springSecurity.version}</version>
+        </dependency>
+        
+        <!-- MySQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.37</version>
+        </dependency>
+        <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
             <version>2.20</version>
@@ -37,31 +75,15 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.9.2</version>
 		</dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.10</version>
-        <executions>
-          <execution>
-            <id>copy-dependencies</id>
-            <phase>package</phase>
-                <goals><goal>copy</goal></goals>
-                <configuration>
-                    <artifactItems>
-                        <artifactItem>
-                            <groupId>com.github.jsimone</groupId>
-                            <artifactId>webapp-runner-main</artifactId>
-                            <version>8.5.23.1</version>
-                            <destFileName>webapp-runner.jar</destFileName>
-                        </artifactItem>
-                    </artifactItems>
-                </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
+    <finalName>db</finalName>
   </build>
+  <artifactId>online-quiz</artifactId>
 </project>

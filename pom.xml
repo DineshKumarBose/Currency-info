@@ -4,7 +4,7 @@
   <groupId>com.leafsoft</groupId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>db Maven Webapp</name>
+  <name>Online Quiz Web Application</name>
   <url>http://maven.apache.org</url>
   <properties>
         <spring.version>4.2.2.RELEASE</spring.version>

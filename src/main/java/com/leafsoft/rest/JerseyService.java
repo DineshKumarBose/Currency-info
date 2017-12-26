@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 
 import org.json.JSONObject;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -17,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class JerseyService {
 	  
 	@GET
+	@PreAuthorize("hasAnyRole('ROLE_BUYER','ROLE_SELLER')")
     @Produces({MediaType.APPLICATION_JSON})
     public String getJSON() {
 		JSONObject test = new JSONObject();
